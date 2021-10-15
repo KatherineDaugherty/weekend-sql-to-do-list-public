@@ -1,0 +1,40 @@
+NOTES _ NOTES_NOTES _ NOTES ____________
+pool is required to talk to DB 
+
+if we had multiple router files. could copy and paste into each file. NOT OKAY - use a module to stay agile. 
+PUT IT INTO A MODULE TO share - inside server folder make a modules folder. then put all pools info into a pools file.
+
+PG and pool in pools.js  
+
+module.exports = pool;   on pool.js ... then inside router.js  const pool=require(`../modules.pool.js`)
+
+./ = this folder ../ = up a level
+
+READ.ME - install - how to get this application up on their computer.  
+upload this repo, npm install, get the databasesql and run those queries to get the tables. 
+
+Jquery, express, node, sql   JENS Stack. 
+
+can install Jquery through npm.  npm install jquery ---- inside node 
+then drag into server folder for access. 
+
+npm init - to install scripts. 
+
+GIT Ignore - .DS_Store  package-lock.json   node_modules
+
+git checkout .file   - to go back to last commit ----- be careful 
+
+grabbing specific parts of the table.   .append the whole table
+get `/:id    grab the one row that you're looking for 
+
+el.data in JQuery needs to come before the append.  be wrapped in jquery
+why use? conditional rendering ---- on the DOM is the last thing -manipulate then append 
+
+append the DOM each time we have new data.  
+re-render the whole thing.  
+
+Posts going back to Database.  input fields from the DOM or postman post body 
+
+SQL injection- Anything on client side is spoof-able --- front end security is just UX   - backend is where security needs to happen 
+
+UI and DATABASE first. 
