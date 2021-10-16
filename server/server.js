@@ -12,7 +12,7 @@ app.use(express.static("server/public"));
 
 
 //Server listening Port 5000
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;  //enviro for heroku 
 
 app.listen(PORT, () => {
     console.log('listening on PORT', PORT);    
