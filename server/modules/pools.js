@@ -1,9 +1,9 @@
 //Database connection 
-const pg = require("pg");
+const pg = require(`pg`);
 
 const config = {
-    database: `list`,
-    host: `weekend_to_do_app`,
+    database: `weekend_to_do_app`,
+    host: `localhost`,
     port: 5432,
     max: 10,
     idleTimeoutMillis: 30000,
