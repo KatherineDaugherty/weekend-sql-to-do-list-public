@@ -17,7 +17,7 @@ You are going to create a 'TO DO' application. This type of application is very 
 [ ]input field <btn>
 
 * When the Task is created, it should be stored inside of a database (SQL)
-[ ] DB set up 
+[x] DB set up 
 
 * Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
 [ ]dynamically append 
