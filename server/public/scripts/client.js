@@ -2,44 +2,44 @@ console.log('JS');
 
 $(document).ready(function () {
     console.log('Jquery');
-    setupClickListeners(); 
+    setupClickListeners();  //delete set up... complete still needed AND SUBMIT 
     getList();  //get existing list
 
 });
 
 function setupClickListeners() {
-    $(`#toDoTableBody`).on(`click`, `.deleteBtn`, deleteListItem);
+    $(`#toDoTableBody`).on(`click`, `.deleteBtn`, deleteListItem); //DELETE WORKS 
 }
 
 function deleteListItem() {
     console.log('inside Delete btn');
-    // let idToDelete = $(this).closest(`tr`).data(`id`);
-    // console.log(idToDelete);
+    let idToDelete = $(this).closest(`tr`).data(`id`);
+    console.log(idToDelete);
 
-    // $.ajax({
-    //     method: `DELETE`,
-    //     url: `/list/${idToDelete}`
-    // }).then(function (response) {
-    //     console.log(response);
-    //     getList();
-    // }).catch(function (error) {
-    //     alert(`Error`, error)
-    // });
+    $.ajax({
+        method: `DELETE`,
+        url: `/list/${idToDelete}`
+    }).then(function (response) {
+        console.log(response);
+        getList();
+    }).catch(function (error) {
+        alert(`Error`, error)
+    });
 }; //end deleteListItem 
 
 function renderList(response) {
     $("#toDoTableBody").empty();
 
     for (let i = 0; i < response.length; i++) {
-        // let id = response[id].id;
-        // let completeBtn = ``;
-        // if (!response[id].complete) {
-        //     completeBtn = `button class="completeBtn"> COMPLETE </button>`;
-        // }
+        let idToCheck = response[i].id;
+        let completeBtn = ``;
+        if (!response[i].complete) {
+            completeBtn = `<button class="completeBtn"> COMPLETE </button>`;
+        }
 
         //data-id="${id}" add to <tr>
         let display = $(`
-        <tr>
+        <tr data-id="${idToCheck}"> 
         <td>${response[i].item} </td>
         <td>${response[i].complete} </td>
         <td> <button class="completeBtn"> COMPLETE</button></td>
@@ -62,6 +62,19 @@ function getList() {
         });
 } //END GET LIST 
 
-
-
-// ADD PUT 
+function saveItem(newListItem) {
+    console.log('In saveItem on Client ', newListItem);
+    $.ajax({
+        method: "POST",
+        url: "/list",
+        data: newListItem,
+    })
+    .then(function (response) {
+        $(`#toDoInput`).val(``);
+        $(`#completeIn`).val(``);
+        getList();
+    })
+    .catch(function (err) {
+        console.log('ERROR', err);        
+    });
+}
