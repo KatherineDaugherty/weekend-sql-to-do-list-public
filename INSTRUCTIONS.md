@@ -14,7 +14,7 @@ You are going to create a 'TO DO' application. This type of application is very 
 **Here are the specific components for the challenge:**
 
 * Create a front end experience that allows a user to create a Task.
-[ ]input field <btn>
+[X]input field <btn>
 
 * When the Task is created, it should be stored inside of a database (SQL)
 [x] DB set up 
