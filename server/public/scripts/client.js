@@ -9,7 +9,23 @@ $(document).ready(function () {
 
 function setupClickListeners() {
     $(`#toDoTableBody`).on(`click`, `.deleteBtn`, deleteListItem); //DELETE WORKS 
+    $(`#toDoButton`).on(`click`, inputToObject)
 }
+function inputToObject() {
+    let boolean;
+    if ($(`#completeIn`).val() === `true`) {
+        boolean = true;
+    } else if ($(`#completeIn`).val() === "false") {
+        boolean = false;
+    }
+    console.log(boolean);
+    let listItemToSend = {
+        item: $("#toDoInput").val(),
+        complete: boolean,
+    };
+    console.log(listItemToSend);
+    saveItem(listItemToSend);
+} //GET User input and put in OBJECT - Call SaveItem()
 
 function deleteListItem() {
     console.log('inside Delete btn');
@@ -25,7 +41,7 @@ function deleteListItem() {
     }).catch(function (error) {
         alert(`Error`, error)
     });
-}; //end deleteListItem 
+}; //end deleteListItem  - TESTED 
 
 function renderList(response) {
     $("#toDoTableBody").empty();
@@ -37,7 +53,6 @@ function renderList(response) {
             completeBtn = `<button class="completeBtn"> COMPLETE </button>`;
         }
 
-        //data-id="${id}" add to <tr>
         let display = $(`
         <tr data-id="${idToCheck}"> 
         <td>${response[i].item} </td>
@@ -69,12 +84,12 @@ function saveItem(newListItem) {
         url: "/list",
         data: newListItem,
     })
-    .then(function (response) {
-        $(`#toDoInput`).val(``);
-        $(`#completeIn`).val(``);
-        getList();
-    })
-    .catch(function (err) {
-        console.log('ERROR', err);        
-    });
-}
+        .then(function (response) {
+            $(`#toDoInput`).val(``);
+            $(`#completeIn`).val(``);
+            getList();
+        })
+        .catch(function (err) {
+            console.log('ERROR', err);
+        });
+} // end saveItem - calls getList ()
