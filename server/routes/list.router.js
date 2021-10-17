@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.post(`/`, (req, res) => {
     const newList = req.body;
     let queryText = `INSERT INTO "list" ("item", "complete")
-    VALUES ( 'shower', false );`;
+    VALUES ( $1, $2 );`;
 
     pool.query(queryText, [
         newList.item,
