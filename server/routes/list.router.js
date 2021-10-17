@@ -34,7 +34,6 @@ router.post(`/`, (req, res) => {
         });
 }); //END POST ROUTE - Tested with postman WORKS! 
 
-//put 
 router.put("/:id", (req, res) => {
     let id = req.params.id;
     let queryText = `UPDATE "list"
@@ -52,7 +51,6 @@ router.put("/:id", (req, res) => {
         });
 });  //END PUT ROUTE  - tested on POSTMAN WORKS
 
-//delete _ TO ADD 
 router.delete("/:id", (req, res) => {
     let id = req.params.id;
     console.log(id);
@@ -72,6 +70,6 @@ router.delete("/:id", (req, res) => {
             console.log('ERROR trying to delete', err);
             res.sendStatus(501)
         });
-}); //END DELETE ROUTE 
+}); //END DELETE ROUTE - TESTED ON POSTMAN 
 
 module.exports = router;
