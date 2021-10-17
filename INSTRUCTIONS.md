@@ -34,7 +34,7 @@ You are going to create a 'TO DO' application. This type of application is very 
 [ ]  conditional of complete for css class 
 
 * Whether or not a Task is complete should also be stored in the database.
-[ ] table head but not shown   stored in DB 
+[X] table head but not shown   stored in DB 
 
 [x] * Deleting a Task should remove it both from the front end as well as the Database.
 

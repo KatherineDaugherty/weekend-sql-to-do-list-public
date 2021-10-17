@@ -1,7 +1,29 @@
 body {
-    background-color: aquamarine;
+    background-color: rgb(239, 201, 149);
+    margin: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1{
+    text-align: center;
+    padding: 25px;
 }
 
 .completedItem {
-    background-color: blueviolet;
+    background-color: rgb(50, 201, 81);
+}
+.completeBtn {
+    background-color: cadetblue;
+}
+.deleteBtn {
+    background-color: crimson;
+
+}
+#toDoForm {
+    padding:15px;
+}
+
+#contentDiv {
+    text-align: center;
+    border: 3px dashed green;
+
 }

@@ -5,39 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="vendors/jquery-3.6.0.min.js"></script>
-    <script src= "scripts/client.js"></script>
+    <script src="scripts/client.js"></script>
     <title>TO DO APP</title>
 </head>
 
 <body>
     <h1>TO DO LIST </h1>
 
+    <div id="contentDiv">
+        <form type="text" id="toDoForm">
+            <input type="text" id="toDoInput" placeholder="To Do Item">
+            <select name="complete" id="completeIn">
+                <option hidden="hidden"> Complete?</option>
+                <option value="false">No</option>
+                <option value="true">Yes</option>
 
-    <form type="text" id="toDoForm">
-        <input type="text" id="toDoInput" placeholder="To Do Item">
-        <select name="complete" id="completeIn">
-            <option hidden="hidden"> Complete?</option>
-            <option value="false">No</option>
-            <option value="true">Yes</option>
+            </select>
+            <button id="toDoButton">SUBMIT</button>
+        </form>
 
-        </select>
-        <button id="toDoButton">SUBMIT</button>
-    </form>
-
-    <table class= "table table-striped">
-        <thead>
-            <tr>
-                <th>TO DO</th>
-                <th>Finished</th>
-            </tr>
-        </thead>
-        <tbody id="toDoTableBody">
-            <!-- APPEND LIST HERE  -->
-        </tbody>
-    </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>TO DO</th>
+                    <th>Finished</th>
+                </tr>
+            </thead>
+            <tbody id="toDoTableBody">
+                <!-- APPEND LIST HERE  -->
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

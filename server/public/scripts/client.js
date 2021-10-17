@@ -79,8 +79,6 @@ function renderList(response) {
             $("#toDoTableBody").append(display);
         }
         else if (response[i].complete) {
-            // completeBtn = `<label class="finished"> FINISHED </label>`
-
             let display = $(`
     <tr class= "completedItem" data-id="${idToCheck}"> 
         <td> ${response[i].item} </td>
