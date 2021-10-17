@@ -20,17 +20,23 @@ You are going to create a 'TO DO' application. This type of application is very 
 [x] DB set up 
 
 * Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
-[ ]dynamically append 
+[X]dynamically append 
 
 * Each Task should have an option to 'Complete' or 'Delete'.
-[ ] buttons from jquery  [ ] click listeners 
+[x] buttons from jquery  
+
+[ ] click listeners 
+  [x] submit button 
+  [x] Delete button 
+  [x] Complete button 
 
 * When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
-
 [ ]  conditional of complete for css class 
+
 * Whether or not a Task is complete should also be stored in the database.
 [ ] table head but not shown   stored in DB 
-* Deleting a Task should remove it both from the front end as well as the Database.
+
+[x] * Deleting a Task should remove it both from the front end as well as the Database.
 
 ### Styling
 

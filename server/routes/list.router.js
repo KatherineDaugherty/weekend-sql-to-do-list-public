@@ -39,7 +39,7 @@ router.put("/:id", (req, res) => {
     let queryText = `UPDATE "list"
     SET "complete" = TRUE
     WHERE "id" = $1;`;
-    console.log(id);
+    console.log(id, `in router PUT`, queryText);
     let values = [id];
     pool.query(queryText, values)
         .then((result) => {

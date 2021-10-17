@@ -4,13 +4,30 @@ $(document).ready(function () {
     console.log('Jquery');
     setupClickListeners();  //delete set up... complete still needed AND SUBMIT 
     getList();  //get existing list
-
 });
 
 function setupClickListeners() {
     $(`#toDoTableBody`).on(`click`, `.deleteBtn`, deleteListItem); //DELETE WORKS 
-    $(`#toDoButton`).on(`click`, inputToObject)
+    $(`#toDoButton`).on(`click`, inputToObject), // button in html on load 
+        $(`#toDoTableBody`).on(`click`, `.completeBtn`, completeFunction);
 }
+function completeFunction() {
+    console.log('IN COMPLETE FUNCTION ');
+
+    let finishedItemId = $(this).closest(`tr`).data(`id`);
+
+    $.ajax({
+        method: "PUT",
+        url: `/list/${finishedItemId}`,
+    })
+    .then(function (response) {
+        console.log(response);
+        getList();
+    }).catch(function (err) {
+        console.log('Error in completed item', err);
+    })
+}
+
 function inputToObject() {
     let boolean;
     if ($(`#completeIn`).val() === `true`) {
@@ -25,7 +42,7 @@ function inputToObject() {
     };
     console.log(listItemToSend);
     saveItem(listItemToSend);
-} //GET User input and put in OBJECT - Call SaveItem()
+} //GET User input and put in OBJECT - Call SaveItem() - TESTED. WORKS 
 
 function deleteListItem() {
     console.log('inside Delete btn');
@@ -49,20 +66,33 @@ function renderList(response) {
     for (let i = 0; i < response.length; i++) {
         let idToCheck = response[i].id;
         let completeBtn = ``;
+
         if (!response[i].complete) {
             completeBtn = `<button class="completeBtn"> COMPLETE </button>`;
+            let display = $(`
+    <tr data-id="${idToCheck}"> 
+        <td> ${response[i].item} </td>
+        <td> ${response[i].complete} </td>
+        <td> ${completeBtn} </td>
+        <td> <button class="deleteBtn"> DELETE</button></td>
+    </tr>`);
+            $("#toDoTableBody").append(display);
         }
+        else if (response[i].complete) {
+            // completeBtn = `<label class="finished"> FINISHED </label>`
 
-        let display = $(`
-        <tr data-id="${idToCheck}"> 
-        <td>${response[i].item} </td>
-        <td>${response[i].complete} </td>
-        <td> <button class="completeBtn"> COMPLETE</button></td>
+            let display = $(`
+    <tr class= "completedItem" data-id="${idToCheck}"> 
+        <td> ${response[i].item} </td>
+        <td> ${response[i].complete} </td>
+        <td> ${completeBtn} </td>
         <td> <button class="deleteBtn"> DELETE</button></td>
         </tr>`);
-        $("#toDoTableBody").append(display);
-    };
-}
+            $("#toDoTableBody").append(display);
+        }; //else if 
+    }; //loop
+} // render function 
+
 function getList() {
     console.log('in GetList');
     $.ajax({
@@ -92,4 +122,4 @@ function saveItem(newListItem) {
         .catch(function (err) {
             console.log('ERROR', err);
         });
-} // end saveItem - calls getList ()
+} // end saveItem - calls getList 
