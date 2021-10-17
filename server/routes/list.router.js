@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
             console.log('ERROR in GET query', err);
             res.sendStatus(500);
         });
-}); // END GET ROUTE --TESTED >>> NOT WORKING  NOT FOUND 
+}); // END GET ROUTE --TESTED with postman - WORKS 
 
 router.post(`/`, (req, res) => {
     const newList = req.body;
@@ -32,12 +32,26 @@ router.post(`/`, (req, res) => {
             console.log('ERROR making POST to DB ');
             res.sendStatus(500);
         });
-}); //END POST ROUTE 
+}); //END POST ROUTE - Tested with postman WORKS! 
 
+//put 
+router.put("/:id", (req, res) => {
+    let id = req.params.id;
+    let queryText = `UPDATE "list"
+    SET "complete" = TRUE
+    WHERE "id" = $1;`;
+    console.log(id);
+    let values =[id];
+    pool.query(queryText, values)
+    .then((result) => {
+       res.sendStatus(200); 
+    })
+    .catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
+});  //END PUT ROUTE  - tested on POSTMAN WORKS
 
-
-
-
-
+//delete _ TO ADD 
 
 module.exports = router;
