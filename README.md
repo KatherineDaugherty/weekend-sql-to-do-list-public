@@ -7,10 +7,10 @@ To do list app is a full stack application that takes user input and stores the 
 
 ## Prerequisites
 
-node.js
-pg
-postgresql
+https://nodejs.org/en/pg
+https://www.postgresql.org/
 
+IDE - this app was built with VS 
 JENS stack 
 
 ## Installation 
