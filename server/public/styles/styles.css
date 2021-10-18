@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(239, 201, 149);
+    background-color: rgb(182, 246, 223);
     margin: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -9,7 +9,8 @@ h1{
 }
 
 .completedItem {
-    background-color: rgb(50, 201, 81);
+    background-color: rgb(225, 218, 16);
+
 }
 .completeBtn {
     background-color: cadetblue;
@@ -23,7 +24,7 @@ h1{
 
 #contentDiv {
     text-align: center;
-    border: 3px dashed green;
+    border: 3px dashed rgb(0, 11, 128);
     margin: auto;
     width: 50%;
 }

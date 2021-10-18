@@ -83,7 +83,7 @@ function renderList(response) {
     <tr class= "completedItem" data-id="${idToCheck}"> 
         <td> ${response[i].item} </td>
         <td> ${response[i].complete} </td>
-        <td> ${completeBtn} </td>
+        <td> <label> Finished </label> </td>
         <td> <button class="deleteBtn"> DELETE</button></td>
         </tr>`);
             $("#toDoTableBody").append(display);
