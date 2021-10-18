@@ -68,13 +68,13 @@ function renderList(response) {
         let completeBtn = ``;
 
         if (!response[i].complete) {
-            completeBtn = `<button class="completeBtn"> COMPLETE </button>`;
+            completeBtn = `<button class="completeBtn btn-success"> COMPLETE </button>`;
             let display = $(`
     <tr data-id="${idToCheck}"> 
         <td> ${response[i].item} </td>
         <td> ${response[i].complete} </td>
         <td> ${completeBtn} </td>
-        <td> <button class="deleteBtn"> DELETE</button></td>
+        <td> <button class="deleteBtn btn-danger"> DELETE</button></td>
     </tr>`);
             $("#toDoTableBody").append(display);
         }
